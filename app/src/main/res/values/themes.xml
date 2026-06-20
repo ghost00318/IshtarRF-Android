@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- A bare no-action-bar theme; all real theming is done in Compose. -->
+    <style name="Theme.IshtarRF" parent="android:Theme.Material.NoActionBar">
+        <item name="android:windowBackground">@color/ishtar_bg</item>
+        <item name="android:statusBarColor">@color/ishtar_bg</item>
+        <item name="android:navigationBarColor">@color/ishtar_bg</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+</resources>

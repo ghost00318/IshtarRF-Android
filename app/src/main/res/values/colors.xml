@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Used by the window background to avoid a white flash before Compose draws. -->
+    <color name="ishtar_bg">#0A0E27</color>
+</resources>
